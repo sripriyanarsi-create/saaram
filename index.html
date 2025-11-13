@@ -25,10 +25,6 @@
         <p>Curated blends roasted to order.</p>
       </div>
     </div>
-    <nav>
-      <button id="manageMenuBtn" class="secondary">Manage Menu</button>
-      <button id="viewReportBtn" class="secondary">Monthly Sales Report</button>
-    </nav>
   </header>
 
   <main>
@@ -52,64 +48,6 @@
       </div>
     </aside>
   </main>
-
-  <section id="reportSection" class="report-panel" hidden>
-    <div class="report-header">
-      <h2>Monthly Sales Snapshot</h2>
-      <button id="closeReportBtn" class="secondary small">Close</button>
-    </div>
-    <div id="reportContent" class="report-content"></div>
-  </section>
-
-  <dialog id="menuModal">
-    <form id="menuForm" method="dialog">
-      <header class="modal-header">
-        <h3 id="menuModalTitle">Add Menu Item</h3>
-        <button type="button" class="icon-btn" id="closeMenuModal" aria-label="Close">×</button>
-      </header>
-      <div class="modal-body">
-        <label>
-          Product Name
-          <input type="text" name="name" required>
-        </label>
-        <label>
-          Blend Description
-          <input type="text" name="description" required>
-        </label>
-        <label>
-          Ratio
-          <input type="text" name="ratio" required>
-        </label>
-        <div class="weight-grid">
-          <label>
-            Weight Option A (grams)
-            <input type="number" name="weightA" required min="1" value="125">
-          </label>
-          <label>
-            Price Option A (₹)
-            <input type="number" name="priceA" required min="0">
-          </label>
-          <label>
-            Weight Option B (grams)
-            <input type="number" name="weightB" min="1" value="250">
-          </label>
-          <label>
-            Price Option B (₹)
-            <input type="number" name="priceB" min="0">
-          </label>
-        </div>
-        <label>
-          Image Path
-          <input type="text" name="image" placeholder="assets/your-image.svg" required>
-        </label>
-        <input type="hidden" name="id">
-      </div>
-      <footer class="modal-footer">
-        <button type="submit" class="primary" id="saveMenuBtn">Save Item</button>
-        <button type="button" id="deleteMenuBtn" class="danger" hidden>Delete Item</button>
-      </footer>
-    </form>
-  </dialog>
 
   <dialog id="paymentModal">
     <div class="payment-content">
@@ -149,7 +87,6 @@
           <span class="menu-price"></span>
           <button class="primary add-to-cart">Add to Cart</button>
         </div>
-        <button class="secondary small edit-item">Edit</button>
       </div>
     </article>
   </template>
