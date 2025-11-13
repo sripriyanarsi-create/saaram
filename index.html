@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saaraam Coffee Collective</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/qr-placeholder.svg" as="image" type="image/svg+xml">
+</head>
+<body>
+  <div class="flash-container">
+    <div class="flash-banner shipping-banner">
+      Flat ₹50 shipping on all online orders across India.
+    </div>
+    <div class="flash-banner roast-banner">
+      Allow 3-5 business days for delivery. Beans are roasted in small batches at home for peak freshness (best within 6 months).
+    </div>
+  </div>
+
+  <header>
+    <div class="brand">
+      <img src="assets/coffee-mark.svg" alt="Saaraam Coffee logo" class="brand-logo">
+      <div>
+        <h1>Saaraam Coffee Collective</h1>
+        <p>Curated blends roasted to order.</p>
+      </div>
+    </div>
+    <nav>
+      <button id="manageMenuBtn" class="secondary">Manage Menu</button>
+      <button id="viewReportBtn" class="secondary">Monthly Sales Report</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="menuSection">
+      <h2>Freshly Roasted Menu</h2>
+      <div id="menuGrid" class="menu-grid" aria-live="polite"></div>
+    </section>
+
+    <aside id="cartSection">
+      <h2>Your Cart</h2>
+      <div id="cartItems" class="cart-items" aria-live="polite"></div>
+      <div class="cart-summary">
+        <div class="cart-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+        <div class="cart-row"><span>Shipping</span><span id="shipping">₹50</span></div>
+        <div class="cart-total cart-row"><span>Total</span><span id="total">₹0</span></div>
+      </div>
+      <div class="cart-actions">
+        <button id="clearCartBtn" class="secondary">Clear Cart</button>
+        <button id="printBillBtn" class="secondary">Print Bill</button>
+        <button id="payNowBtn" class="primary">Pay Now</button>
+      </div>
+    </aside>
+  </main>
+
+  <section id="reportSection" class="report-panel" hidden>
+    <div class="report-header">
+      <h2>Monthly Sales Snapshot</h2>
+      <button id="closeReportBtn" class="secondary small">Close</button>
+    </div>
+    <div id="reportContent" class="report-content"></div>
+  </section>
+
+  <dialog id="menuModal">
+    <form id="menuForm" method="dialog">
+      <header class="modal-header">
+        <h3 id="menuModalTitle">Add Menu Item</h3>
+        <button type="button" class="icon-btn" id="closeMenuModal" aria-label="Close">×</button>
+      </header>
+      <div class="modal-body">
+        <label>
+          Product Name
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Blend Description
+          <input type="text" name="description" required>
+        </label>
+        <label>
+          Ratio
+          <input type="text" name="ratio" required>
+        </label>
+        <div class="weight-grid">
+          <label>
+            Weight Option A (grams)
+            <input type="number" name="weightA" required min="1" value="125">
+          </label>
+          <label>
+            Price Option A (₹)
+            <input type="number" name="priceA" required min="0">
+          </label>
+          <label>
+            Weight Option B (grams)
+            <input type="number" name="weightB" min="1" value="250">
+          </label>
+          <label>
+            Price Option B (₹)
+            <input type="number" name="priceB" min="0">
+          </label>
+        </div>
+        <label>
+          Image Path
+          <input type="text" name="image" placeholder="assets/your-image.svg" required>
+        </label>
+        <input type="hidden" name="id">
+      </div>
+      <footer class="modal-footer">
+        <button type="submit" class="primary" id="saveMenuBtn">Save Item</button>
+        <button type="button" id="deleteMenuBtn" class="danger" hidden>Delete Item</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="paymentModal">
+    <div class="payment-content">
+      <header class="modal-header">
+        <h3>Pay via UPI QR</h3>
+        <button type="button" class="icon-btn" id="closePaymentModal" aria-label="Close">×</button>
+      </header>
+      <div class="modal-body">
+        <p>Scan the QR code below to complete your payment.</p>
+        <img src="assets/qr-placeholder.svg" alt="UPI payment QR" class="qr-image">
+        <p class="muted">After payment, your order details will be saved for the monthly report.</p>
+        <button id="confirmPaymentBtn" class="primary full-width">Payment Completed</button>
+      </div>
+    </div>
+  </dialog>
+
+  <template id="menuCardTemplate">
+    <article class="menu-card">
+      <img class="menu-image" alt="">
+      <div class="menu-content">
+        <h3 class="menu-title"></h3>
+        <p class="menu-description"></p>
+        <div class="menu-meta">
+          <span class="menu-ratio"></span>
+          <div class="weight-selector">
+            <label>
+              <input type="radio" name="weight" value="125" checked>
+              125g
+            </label>
+            <label>
+              <input type="radio" name="weight" value="250">
+              250g
+            </label>
+          </div>
+        </div>
+        <div class="menu-actions">
+          <span class="menu-price"></span>
+          <button class="primary add-to-cart">Add to Cart</button>
+        </div>
+        <button class="secondary small edit-item">Edit</button>
+      </div>
+    </article>
+  </template>
+
+  <template id="cartItemTemplate">
+    <div class="cart-item">
+      <div>
+        <h4 class="cart-item-title"></h4>
+        <p class="cart-item-meta"></p>
+      </div>
+      <div class="cart-item-controls">
+        <div class="quantity-control">
+          <button class="icon-btn decrease">−</button>
+          <span class="quantity">1</span>
+          <button class="icon-btn increase">+</button>
+        </div>
+        <span class="cart-item-total"></span>
+        <button class="icon-btn remove" aria-label="Remove item">×</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
+

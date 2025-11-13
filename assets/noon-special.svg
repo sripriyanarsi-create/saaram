@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <radialGradient id="sun" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffe082"/>
+      <stop offset="60%" stop-color="#ffc107"/>
+      <stop offset="100%" stop-color="#f57f17"/>
+    </radialGradient>
+    <linearGradient id="cup" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7a4b1a"/>
+      <stop offset="100%" stop-color="#a0622d"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#sun)"/>
+  <g transform="translate(150 140)">
+    <rect x="0" y="120" width="300" height="70" rx="35" fill="#fef4d8" opacity="0.8"/>
+    <rect x="30" y="40" width="240" height="140" rx="40" fill="#f5f0e6"/>
+    <path d="M270 70c40 0 60 50 20 90-18 19-52 12-52 12z" fill="#fbe8c0" stroke="#f0d79a" stroke-width="8"/>
+    <rect x="70" y="60" width="160" height="100" rx="30" fill="url(#cup)"/>
+    <text x="150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#7a4b1a" font-weight="700">
+      Noon Special
+    </text>
+  </g>
+  <text x="300" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#7a4b1a" font-weight="700">
+    70:30 Comfort Brew
+  </text>
+</svg>
+
