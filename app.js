@@ -22,7 +22,7 @@ const defaultMenu = [
       { grams: 125, price: 125 },
       { grams: 250, price: 250 }
     ],
-    image: 'assets/bold-beautiful.svg'
+    image: 'assets/bold-beautiful.png'
   },
   {
     id: 'noon-special',
@@ -33,7 +33,7 @@ const defaultMenu = [
       { grams: 125, price: 125 },
       { grams: 250, price: 250 }
     ],
-    image: 'assets/noon-special.svg'
+    image: 'assets/noon-special.png'
   },
   {
     id: 'evergreen',
@@ -44,7 +44,7 @@ const defaultMenu = [
       { grams: 125, price: 160 },
       { grams: 250, price: 320 }
     ],
-    image: 'assets/evergreen.svg'
+    image: 'assets/evergreen.jpg'
   },
   {
     id: 'specialty',
@@ -55,7 +55,7 @@ const defaultMenu = [
       { grams: 100, price: 350 },
       { grams: 200, price: 700 }
     ],
-    image: 'assets/specialty.svg'
+    image: 'assets/specialty.png'
   }
 ];
 
