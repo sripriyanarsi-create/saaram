@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saaraam Coffee Collective</title>
+  <title>Saaram Coffee Collective</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preload" href="assets/qr-placeholder.svg" as="image" type="image/svg+xml">
 </head>
@@ -19,16 +19,40 @@
 
   <header>
     <div class="brand">
-      <img src="assets/coffee-mark.svg" alt="Saaraam Coffee logo" class="brand-logo">
-      <div>
-        <h1>Saaraam Coffee Collective</h1>
-        <p>Curated blends roasted to order.</p>
+      <img src="assets/coffee-mark.svg" alt="Saaram Coffee logo" class="brand-logo" id="brandLogo">
+      <div class="brand-copy">
+        <h1>Saaram Coffee Collective</h1>
+        <p class="brand-tagline">Elegant essence in every sip.</p>
+        <p class="brand-owner muted">Soulfully owned by Krishna Kaapi Works • Nallagandla</p>
       </div>
     </div>
+    <nav>
+      <a href="#shop" class="nav-link">Shop Products</a>
+      <a href="#ourStory" class="nav-link">Our Story</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
+    </nav>
   </header>
 
+  <section class="brand-assets">
+    <details open>
+      <summary>Personalize your Saaram visuals</summary>
+      <div class="asset-grid">
+        <label class="file-field">
+          <span class="file-label">Brand logo</span>
+          <input type="file" id="brandLogoInput" accept="image/*">
+          <span class="file-note">Upload directly from your laptop to refresh the Saaram mark across the site.</span>
+        </label>
+        <div class="file-column">
+          <h3>Product imagery</h3>
+          <p class="muted">Select images from your personal folders to refresh each blend’s visual.</p>
+          <div id="productUploadFields" class="file-grid"></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
   <main>
-    <section id="menuSection">
+    <section id="shop">
       <h2>Freshly Roasted Menu</h2>
       <div id="menuGrid" class="menu-grid" aria-live="polite"></div>
     </section>
@@ -49,6 +73,72 @@
     </aside>
   </main>
 
+  <section id="ourStory" class="section-block">
+    <div class="section-card">
+      <h2>Our Story</h2>
+      <p>
+        Saaram is an artisanal coffee experience crafted with love and patience. Each batch is roasted in small drums, guided by instinct and years of soulful brewing. From carefully sourced beans to mindful packaging, every detail celebrates warmth, hospitality, and the comfort of a perfect cup.
+      </p>
+      <p>
+        We are soulfully owned and nurtured by <strong>Krishna Kaapi Works</strong>, nestled in the heart of Nallagandla. Saaram is our ode to the community that inspired us to bottle the aroma of home.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="section-block">
+    <div class="section-card contact-card">
+      <h2>Contact Us</h2>
+      <p class="muted">For bespoke orders, wholesale conversations, or any shopping queries, we’re just a message away.</p>
+      <ul class="contact-list">
+        <li>
+          <span>Email</span>
+          <a href="mailto:krishnakaapiworks@gmail.com">krishnakaapiworks@gmail.com</a>
+        </li>
+        <li>
+          <span>WhatsApp</span>
+          <a href="https://wa.me/9080089081" target="_blank" rel="noopener">9080089081</a>
+        </li>
+        <li>
+          <span>Location</span>
+          <span>Nallagandla, Telangana</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section-block">
+    <div class="section-card">
+      <header class="section-header">
+        <h2>Testimonials</h2>
+        <p class="muted">Share your Saaram experience and see it featured below.</p>
+      </header>
+      <form id="feedbackForm" class="feedback-form">
+        <div class="input-row">
+          <label>
+            Your Name
+            <input type="text" name="name" placeholder="Tell us who you are">
+          </label>
+          <label>
+            Favourite Saaram Blend
+            <input type="text" name="beverage" placeholder="Optional">
+          </label>
+        </div>
+        <label>
+          Your Note
+          <textarea name="message" rows="4" required placeholder="Leave a heartfelt note about your recent order."></textarea>
+        </label>
+        <div class="feedback-actions">
+          <button type="submit" class="primary">Submit Testimonial</button>
+          <p id="feedbackSuccess" class="feedback-success" hidden></p>
+        </div>
+      </form>
+      <div id="testimonialsEmpty" class="testimonial-empty muted">
+        Be the first to share a Saaram story and inspire future brews.
+      </div>
+      <div id="testimonialsList" class="testimonial-list"></div>
+    </div>
+  </section>
+
   <dialog id="paymentModal">
     <div class="payment-content">
       <header class="modal-header">
@@ -58,7 +148,7 @@
       <div class="modal-body">
         <p>Scan the QR code below to complete your payment.</p>
         <img src="assets/qr-placeholder.svg" alt="UPI payment QR" class="qr-image">
-        <p class="muted">After payment, your order details will be saved for the monthly report.</p>
+        <p class="muted">After payment, drop a note in our testimonial wall to help future coffee lovers.</p>
         <button id="confirmPaymentBtn" class="primary full-width">Payment Completed</button>
       </div>
     </div>
